@@ -1,9 +1,29 @@
+/*
+    Task: Given that integers are read from a data stream. Find median of elements read so for in efficient way.
+          For simplicity assume there are no duplicates.
+ 
+    At first glance it appears like finding the median would be expensive since we're sorting the set before we determine the median.
+    Apple's built-in sort() function is using IntroSort. This is one of the fastest sorting algorithms around.
+    
+    IntroSort starts off with QuickSort. Once the recursion depth goes more than a certain limit,
+    it'll switch to HeapSort to avoid QuickSort's worst-case O(n^2) time complexity.
+    However for sets smaller than 16, it decays into InsertionSort since it performs best with small sets.
+ 
+    There's really only one other established way to find the median without sorting. That's using the 'Median of Medians Algorithm'.
+    That algorithm is very complex and would actually perform slower than IntroSort in many scenarios.
+ 
+    That is, since we can sort a set of numbers and determine it's median more efficiently than we can find the median of an unsorted set,
+    we're going to happily sort the set first.
+*/
+
 
 import UIKit
 
 //MARK: - Median Finder
 class MedianFinder: CustomStringConvertible {
     var numbers = [Int]()
+
+    //description simply used for formatting output in a more friendly way and shouldn't be considered as part of the solution's overall efficiency.
     var description: String {
         var elements: String = "["
         for num in numbers {
@@ -30,13 +50,13 @@ class MedianFinder: CustomStringConvertible {
         return Double((right + left) / 2.0)
     }
 
-    // O(n)
+    // O(1)
     func addNum(num: Int) {
         numbers.append(num)
     }
 
 
-    // O(n)
+    // O(n) where n is the size of the numbers array
     func findMean(set: MedianFinder) -> (Double, Double) {
         let median = set.findMedian()
         var mean = 0.0
