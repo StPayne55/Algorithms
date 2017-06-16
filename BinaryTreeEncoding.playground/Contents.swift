@@ -1,4 +1,15 @@
-//: Playground - noun: a place where people can play
+/*
+    This is a basic Binary Tree implementation in Swift using generics.
+ 
+    A common algorithm problem is to create an algorithm to serialize and deserialize a binary tree. 
+    The key to solve that problem is to traverse the tree and convert each node to a String/Int. 
+    Then, you'd use a marker to denote empty nodes such as '-'. 
+ 
+    In this example, I sort the binary tree when a new node is inserted and so while it does technically serialize each node as a String and each empty node as a '-', 
+    this isn't really needed since each node will automatically be inserted in the right location upon deserialization and so empty nodes are irrelevant.
+ 
+    If not for sorting upon insertion however, we would definitely need to know where the empty nodes were so that when we rebuild the tree, we know where each node belongs.
+*/
 
 import UIKit
 
