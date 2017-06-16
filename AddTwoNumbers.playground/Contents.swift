@@ -1,4 +1,13 @@
-//: Playground - noun: a place where people can play
+/*
+     You are given two non-empty linked lists representing two non-negative integers.
+     The digits are stored in reverse order and each of their nodes contain a single digit.
+     Add the two numbers and return it as a linked list.
+
+     You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+     Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+     Output: 7 -> 0 -> 8
+*/
 
 import UIKit
 
@@ -113,7 +122,7 @@ list1.appendValues(values: numArray1)
 list2.appendValues(values: numArray2)
 
 
-//MARK: - LeetCode Add Two Numbers Problem
+//MARK: - Solution
 class ListNode: CustomStringConvertible {
     var value: Int
     var next: ListNode?
@@ -179,7 +188,6 @@ let node1 = ListNode(nodeValue: 1, nodeNext: ListNode(nodeValue: 1, nodeNext: Li
 let node2 = ListNode(nodeValue: 1, nodeNext: ListNode(nodeValue: 2, nodeNext: ListNode(nodeValue: 3, nodeNext: nil)))
 print(node1)
 print(node2)
-
-print(addNumbers(node1, node2: node2))
+print(addNumbers(node1, node2: node2)!)
 
 
